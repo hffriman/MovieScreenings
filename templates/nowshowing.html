@@ -1,0 +1,30 @@
+<!--Source: "Python Web Service from Idea to Production" by Tero Karvinen--!>
+
+{% set title = "Now Showing" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+	{% for screening in screeninglist %}
+
+		<h3><i>{{screening.title}}</i></h3>
+
+			{% if currentUser() %}
+				<a href="/screening/{{screening.id}}/edit">Edit</a> / <a href="/screening/{{screening.id}}/delete">Delete</a>
+			{% endif %}
+
+		<h4>Screening Information</h4>
+		<p>Host: {{screening.host}}</p>
+		<p>Place: {{screening.screeningplace}}</p>
+		<p>Time: {{screening.screeningtime}}</p>
+		<p>Contact: {{screening.hostmail}}, {{screening.hostphone}}</p>
+		
+		<h4>Movie information</h4>
+		<p>Directed by {{screening.director}}</p>
+		<p>Starring {{screening.cast}}</p>
+		<p>Synopsis: {{screening.synopsis}}</p>
+
+	{% endfor %}
+
+{% endblock content %}
+		

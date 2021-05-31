@@ -1,0 +1,26 @@
+<!--Source: "Python Web Service from Idea to Production" by Tero Karvinen--!>
+
+{% set title = "Add a Screening" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+	<form method=POST>
+		{% for field in form %}
+			{% if not field.flags.hidden %}
+				{{ field.label }} <br>
+			{% endif %}
+
+			{{ field }} <br>
+
+			{% for err in field.errors %}
+				<b>{{ err }}</b>
+			{% endfor %}
+
+			<br>
+
+		{% endfor %}
+		<input type=submit>
+	</form>
+
+{% endblock content %}
