@@ -16,15 +16,16 @@ class Screenings(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	title = db.Column(db.String, nullable=False)
 	director = db.Column(db.String, nullable=False)
-	releaseyear = db.Column(db.Integer, nullable=False)
-	cast = db.Column(db.Integer, nullable=False)
+	release_year = db.Column(db.Integer, nullable=False)
+	cast = db.Column(db.String, nullable=False)
 	length = db.Column(db.Integer, nullable=False)
-	synopsis = db.Column(db.Integer, nullable=False)
-	screeningdate = db.Column(db.String, nullable=False)
-	screeningtime = db.Column(db.String, nullable=False)
-	hostname = db.Column(db.String, nullable=False)
-	hostmail = db.Column(db.String, nullable=False)
-	hostphone = db.Column(db.String, nullable=False)
+	synopsis = db.Column(db.String, nullable=False)
+	screening_date = db.Column(db.String, nullable=False)
+	screening_time = db.Column(db.String, nullable=False)
+	screening_address = db.Column(db.String, nullable=False)
+	host_name = db.Column(db.String, nullable=False)
+	host_email = db.Column(db.String, nullable=False)
+	host_phone = db.Column(db.String, nullable=False)
 
 
 ScreeningForm = model_form(Screenings, base_class=FlaskForm, db_session = db.session)
@@ -34,6 +35,7 @@ class Users(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	email = db.Column(db.String, nullable=False, unique=True)
 	passwordHash = db.Column(db.String, nullable=False)
+
 
 	def setPassword(self, password):
 		self.passwordHash = generate_password_hash(password)
@@ -88,10 +90,12 @@ def loginView():
 			print("Incorrect password")
 			return redirect("/user/login")
 
+
 		session["uid"] = user.id
 
+
 		flash("Login successful")
-		return redirect("/")
+		return redirect("/nowshowing")
 
 	return render_template("login.html", form=form)
 
@@ -123,13 +127,12 @@ def registerView():
 
 
 
-
 @app.route("/user/logout")
 def logoutView():
 
 	session["uid"] = None
 	flash("You have logged out")
-	return redirect("/")
+	return redirect("/nowshowing")
 
 
 
@@ -158,7 +161,7 @@ def addView(id=None):
 
 	screening = Screenings()
 	if id:
-		screening = Screenings.query_get_or_404(id)
+		screening = Screenings.query.get_or_404(id)
 	form = ScreeningForm(obj=screening)
 
 	if form.validate_on_submit():
@@ -183,7 +186,7 @@ def deleteView(id):
 	db.session.commit()
 
 	flash("Screening deleted")
-	return redirect("/")
+	return redirect("/nowshowing")
 
 
 @app.route("/nowshowing")

@@ -22,10 +22,6 @@
 
 	<h1>Movie Screening Service</h1>
 
-	{% for msg in get_flashed_messages() %}
-		<p><b>{{ msg }}</b></p>
-	{% endfor %}
-
 	<nav>
 
 		<a href="/">Home</a> --
@@ -40,6 +36,12 @@
 		{% endif %}
 	
 	</nav>
+
+	{% for msg in get_flashed_messages() %}
+
+		<p><b>{{ msg }}</b></p>
+
+	{% endfor %}
 
 	<br>
 
