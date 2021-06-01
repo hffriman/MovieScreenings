@@ -19,15 +19,15 @@
 	
 	{% for screening in screeninglist %}
 
-
+		
 		<h3><i>{{screening.title}}</i></h3>
-		<h4><i>{{screening.screening_date}} || {{screening.screening_time}}</i></h4>
-		<h4><i>{{screening.screening_address}}</i></h4>
+		<h4>{{screening.screening_date}} || {{screening.screening_time}}</h4>
+		<h4>{{screening.screening_address}}</h4>
 		<p><b>-----CONTACT-------</b></p>
 		<p>{{screening.host_name}}, {{screening.host_email}}, {{screening.host_phone}}</p>
 		<p><b>-------------------</b></p>
-		<p>About the Film:</p>
-		<p>Directed by {{screening.director}} || Starring {{screening.cast}} || Released in {{screening.release_year}}</p>
+		<p>Directed by {{screening.director}} || Starring {{screening.cast}}</p>
+		<p>Released in {{screening.release_year}} || Runtime: {{screening.length}} min.</p>
 		<p>{{screening.synopsis}}</p>
 
 		{% if currentUser() %}
