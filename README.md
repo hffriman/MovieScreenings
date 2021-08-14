@@ -9,7 +9,7 @@
 <li>Screening date, Screening Time, Screening Address</li>
 <li>Host's Name, Email and Phone Number</li>
 <h2>Example of the Service</h2>
-<h5>NB: THE MOVIE IN THE IMAGE IS FOR DEMONSTRATION ONLY</h5>
+<h5> THE MOVIE IN THE EXAMPLE IS FOR DEMONSTRATION ONLY --> SHIN GODZILLA BELONGS TO TOHO.CO, LTD. </h5>
 <br>
 <img src="https://github.com/hffriman/MovieScreenings/blob/master/MovieScreenings-image.png">
 <h2>Different Pages</h2>
@@ -25,3 +25,5 @@
 <li>I would create more specific rights to the user accounts: they would have access ONLY TO THEIR OWN movie screenings instead of being able to delete and edit other user's posts.</li>
 <li>I would create a reservation system: instead of having to contact the host by mail or phone, the user could just reserve their seats on this web service only.</li>
 
+<h2>Licence</h2>
+<p>GNU General Public License</p>
