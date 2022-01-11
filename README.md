@@ -1,7 +1,7 @@
 # MovieScreenings
 
 <h2>Introduction</h2>
-<p>This was my final project for Tero Karvinen's course "Python Web Service from Idea to Production" in Summer 2021.</p>
+<p>This was my final project in Tero Karvinen's course "Python Web Service from Idea to Production" in Summer 2021.</p>
 <p>My idea for the project was a "Movie Screening Service", a platform where users can make announcements of their own movie screening events.</p>
 <p>The service can be used with or without account: the user only needs an account if they want to add their own movie screenings</p>
 <p>Each post contains the details of the movie screening: 
